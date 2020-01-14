@@ -9,18 +9,46 @@
 // con difficoltà 1 => numeri vietati  da 1 a 80, tentativi 64
 // con difficoltà 2 => numeri vietati  da 1 a 50, tentativi 34
 
+///VARIABILI///
 var numeriComputer = [];
-var numRandomNumber = getRandomIntInclusive(1,100);
+var utente;
+var presente = false;
+var tentativi = 84;
+var score = 0;
 
+// Il computer deve generare 16 numeri casuali da 1 a 100.
 
-
+///FUNZIONE///
 function getRandomIntInclusive(min, max) {
 min = Math.ceil(min);
 max = Math.floor(max);
-return Math.floor(Math.random() * (max - min + 1)) + min; //Il max è incluso e il min è incluso
+return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 for (var i = 1; i <= 16; i++) {
-  numeriComputer.push(numRandomNumber);
+  numeriComputer.push(getRandomIntInclusive(1,100));
 }
-console.log(numeriComputer);
+console.log("Numeri random PC " + numeriComputer);
+
+// l'utente inserisce un numero per 84 tentativi
+var x = 0;
+while (x < tentativi && presente == false) {
+  utente = prompt('Inserisci un numero da 1 a 100')
+  console.log('Numero inserito: ' + utente);
+
+
+  for (var t = 0; t < numeriComputer.length; t++) {
+    if (utente == numeriComputer[t]) {
+      presente = true;
+    }
+    if (presente == true) {
+      console.log("partita finita");
+
+    }
+  }
+  x++;
+  score++;
+  console.log("Lo score è di " + score);
+}
+
+console.log(" è stato trovato? " + presente);
