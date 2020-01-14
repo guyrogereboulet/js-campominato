@@ -1,0 +1,26 @@
+// Campo Minato
+// Il computer deve generare 16 numeri casuali da 1 a 100.
+// In seguito deve chiedere all’utente di inserire per 84 volte un numero da 1 a 100, se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti continua chiedendo all’utente un altro numero.
+// La partita termina quando il giocatore inserisce un numero “vietato”, ovvero presente nella lista di numeri random, o raggiunge il numero massimo possibile di tentativi consentiti.
+// Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
+// BONUS: all’inizio il software richiede anche una difficoltà all’utente
+// che cambia il range di numeri casuali.
+// Con difficoltà 0 => numeri vietati da 1 a 100, tentativi 84
+// con difficoltà 1 => numeri vietati  da 1 a 80, tentativi 64
+// con difficoltà 2 => numeri vietati  da 1 a 50, tentativi 34
+
+var numeriComputer = [];
+var numRandomNumber = getRandomIntInclusive(1,100);
+
+
+
+function getRandomIntInclusive(min, max) {
+min = Math.ceil(min);
+max = Math.floor(max);
+return Math.floor(Math.random() * (max - min + 1)) + min; //Il max è incluso e il min è incluso
+}
+
+for (var i = 1; i <= 16; i++) {
+  numeriComputer.push(numRandomNumber);
+}
+console.log(numeriComputer);
